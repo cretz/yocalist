@@ -13,24 +13,14 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.yocalist.client;
+package com.yocalist.shared;
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.core.client.Scheduler.ScheduledCommand;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.yocalist.client.ui.ClientWidget;
+/**
+ * Base exception
+ * 
+ * @author Chad Retz
+ */
+@SuppressWarnings("serial")
+public class YocalistException extends Exception {
 
-public class Yocalist implements EntryPoint {
-
-    @Override
-    public void onModuleLoad() {
-        Scheduler.get().scheduleDeferred(new ScheduledCommand() {
-            @Override
-            public void execute() {
-                RootPanel.get().add(new ClientWidget());
-            }
-        });
-    }
-    
 }

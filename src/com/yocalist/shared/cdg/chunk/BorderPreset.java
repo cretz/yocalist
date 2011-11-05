@@ -13,24 +13,34 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.yocalist.client;
+package com.yocalist.shared.cdg.chunk;
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.core.client.Scheduler.ScheduledCommand;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.yocalist.client.ui.ClientWidget;
+import java.io.IOException;
 
-public class Yocalist implements EntryPoint {
+import com.yocalist.shared.ByteReader;
 
-    @Override
-    public void onModuleLoad() {
-        Scheduler.get().scheduleDeferred(new ScheduledCommand() {
-            @Override
-            public void execute() {
-                RootPanel.get().add(new ClientWidget());
-            }
-        });
+/**
+ * Border preset chunk
+ * 
+ * @author Chad Retz
+ */
+public class BorderPreset extends CdgChunk {
+
+    private int colorIndex;
+    
+    public BorderPreset() {
     }
     
+    public BorderPreset(ByteReader reader) throws IOException {
+        colorIndex = reader.read() & 0x0f;
+        reader.skip(15);
+    }
+
+    public int getColorIndex() {
+        return colorIndex;
+    }
+    
+    public void setColorIndex(int colorIndex) {
+        this.colorIndex = colorIndex;
+    }
 }

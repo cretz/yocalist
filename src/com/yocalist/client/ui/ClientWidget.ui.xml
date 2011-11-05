@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.gwt.canvas.client"
+    xmlns:v="urn:import:org.vectomatic.dnd"
+    xmlns:f="urn:import:org.vectomatic.file">
+    <ui:style>
+        .dropZone {
+            border: 2px dashed #BBBBBB;
+            border-radius: 5px 5px 5px 5px;
+            color: #BBBBBB;
+            padding: 25px;
+            text-align: center;
+        }
+	</ui:style>
+    <g:HTMLPanel>
+        <v:DropPanel ui:field="dropPanel" styleName="{style.dropZone}" />
+        <g:Label ui:field="status" />
+        <c:Canvas ui:field="canvas" width="300" height="216" />
+    </g:HTMLPanel>
+</ui:UiBinder> 

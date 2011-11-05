@@ -13,24 +13,30 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.yocalist.client;
+package com.yocalist.shared;
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.core.client.Scheduler.ScheduledCommand;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.yocalist.client.ui.ClientWidget;
+import java.io.IOException;
 
-public class Yocalist implements EntryPoint {
+/**
+ * Simple byte reader interface
+ * 
+ * @author Chad Retz
+ */
+public interface ByteReader {
 
-    @Override
-    public void onModuleLoad() {
-        Scheduler.get().scheduleDeferred(new ScheduledCommand() {
-            @Override
-            public void execute() {
-                RootPanel.get().add(new ClientWidget());
-            }
-        });
-    }
+    int getLength();
     
+    int getIndex();
+    
+    Byte read() throws IOException;
+    
+    void read(byte[] bytes) throws IOException;
+    
+    void readAndMask(byte[] bytes, int mask) throws IOException;
+    
+    void skip() throws IOException;
+    
+    void skip(int count) throws IOException;
+    
+    void close() throws IOException;
 }

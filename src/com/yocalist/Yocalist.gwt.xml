@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to="yocalist">
 
-  <inherits name="com.google.gwt.user.User" />
+    <inherits name="com.google.gwt.user.User" />
+    <inherits name="org.vectomatic.libgwtfile" />
+    <inherits name="com.google.gwt.canvas.Canvas" />
 
-  <entry-point class="com.yocalist.client.Yocalist" />
+    <entry-point class="com.yocalist.client.Yocalist" />
 
-  <source path="client" />
-  <source path="shared" />
+    <source path="client" />
+    <source path="shared" />
 
 </module>
